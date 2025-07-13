@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyst Dashboard - TechSecure</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TechSecure Analyst</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reports</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> <span id="userName">Analyst</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Welcome Section -->
+            <div class="col-12">
+                <h1>Analyst Dashboard</h1>
+                <p class="lead">Data Analysis and Reporting Center</p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="row mt-4">
+            <!-- User Role Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-chart-bar"></i> User Role</h5>
+                        <p class="card-text">Analyst</p>
+                        <p class="card-text"><small>Data Analysis Access</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Sets Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-database"></i> Data Sets</h5>
+                        <p class="card-text">24 Active</p>
+                        <p class="card-text"><small>Available for Analysis</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Generated Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-file-alt"></i> Reports</h5>
+                        <p class="card-text">156 Generated</p>
+                        <p class="card-text"><small>This Quarter</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trends Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-chart-line"></i> Trends</h5>
+                        <p class="card-text">12 Identified</p>
+                        <p class="card-text"><small>New This Week</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analyst Features Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Analyst Features</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Analysis Permissions</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> View Data Sets</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Create Reports</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Analyze Trends</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Export Data</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Generate Visualizations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Analysis Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Recent Analysis</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Report Name</th>
+                                        <th>Type</th>
+                                        <th>Date Created</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><i class="fas fa-chart-pie text-primary"></i> Q4 Sales Analysis</td>
+                                        <td>Financial</td>
+                                        <td>2025-01-15</td>
+                                        <td><span class="badge bg-success">Complete</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">View</button>
+                                            <button class="btn btn-sm btn-secondary">Export</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-chart-area text-success"></i> User Growth Trends</td>
+                                        <td>User Analytics</td>
+                                        <td>2025-01-14</td>
+                                        <td><span class="badge bg-success">Complete</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">View</button>
+                                            <button class="btn btn-sm btn-secondary">Export</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-chart-bar text-warning"></i> Performance Metrics</td>
+                                        <td>System</td>
+                                        <td>2025-01-13</td>
+                                        <td><span class="badge bg-warning">In Progress</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">Continue</button>
+                                            <button class="btn btn-sm btn-danger">Cancel</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Chart -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Quick Statistics</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="statsChart" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <!-- Auth JS -->
+    <script src="../js/auth.js"></script>
+    <!-- Dashboard JS -->
+    <script src="../js/dashboard.js"></script>
+    <!-- Analyst specific JS -->
+    <script>
+        // Analyst-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is authenticated and has analyst role
+            if (!requireAuth('analyst')) {
+                return; // requireAuth will handle redirect
+            }
+            
+            // Load user data
+            const userData = getUserData();
+            if (userData) {
+                document.getElementById('userName').textContent = userData.name;
+            }
+            
+            // Load dashboard data
+            loadDashboardData();
+            
+            // Initialize sample chart
+            initializeChart();
+        });
+        
+        // Load analyst dashboard data
+        async function loadDashboardData() {
+            try {
+                const response = await authenticatedFetch('/api/analyst/dashboard');
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    console.log('Analyst dashboard loaded:', data);
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+        
+        // Initialize sample chart
+        function initializeChart() {
+            const ctx = document.getElementById('statsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Data Points Analyzed',
+                        data: [12000, 19000, 15000, 25000, 22000, 30000],
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    <script src="../js/email-verification-reminder.js"></script>
+</body>
+</html> 

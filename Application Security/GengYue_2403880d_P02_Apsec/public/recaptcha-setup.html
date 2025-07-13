@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA Setup Guide - TechSecure</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h1 class="mb-4">
+                    <i class="fas fa-shield-alt"></i> Google reCAPTCHA Setup Guide
+                </h1>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> 
+                    <strong>Current Status:</strong> Using test keys (always passes verification)
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>What is reCAPTCHA?</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Google reCAPTCHA is a free service that protects your website from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart.</p>
+                        <p>TechSecure has integrated reCAPTCHA v2 ("I'm not a robot" checkbox) on:</p>
+                        <ul>
+                            <li>User Registration Page</li>
+                            <li>User Login Page</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>How to Set Up Production Keys</h3>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <li class="mb-3">
+                                <strong>Visit Google reCAPTCHA Admin Console</strong><br>
+                                Go to <a href="https://www.google.com/recaptcha/admin" target="_blank">https://www.google.com/recaptcha/admin</a>
+                            </li>
+                            <li class="mb-3">
+                                <strong>Register Your Site</strong>
+                                <ul>
+                                    <li>Label: TechSecure (or your site name)</li>
+                                    <li>reCAPTCHA type: <strong>reCAPTCHA v2</strong></li>
+                                    <li>Select: "I'm not a robot" Checkbox</li>
+                                    <li>Domains: Add your production domain(s)</li>
+                                </ul>
+                            </li>
+                            <li class="mb-3">
+                                <strong>Get Your Keys</strong><br>
+                                After registration, you'll receive:
+                                <ul>
+                                    <li><strong>Site Key:</strong> For the frontend (public)</li>
+                                    <li><strong>Secret Key:</strong> For the backend (private)</li>
+                                </ul>
+                            </li>
+                            <li class="mb-3">
+                                <strong>Update Environment Variables</strong><br>
+                                Add to your <code>.env</code> file:
+                                <pre class="bg-light p-3"><code>RECAPTCHA_SITE_KEY=your-site-key-here
+RECAPTCHA_SECRET_KEY=your-secret-key-here</code></pre>
+                            </li>
+                            <li class="mb-3">
+                                <strong>Update Frontend HTML</strong><br>
+                                Replace the test site key in <code>login.html</code> and <code>register.html</code>:
+                                <pre class="bg-light p-3"><code>&lt;div class="g-recaptcha" data-sitekey="your-site-key-here"&gt;&lt;/div&gt;</code></pre>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Current Test Keys</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>The application is currently using Google's test keys that always pass verification:</p>
+                        <ul>
+                            <li><strong>Site Key:</strong> <code>6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI</code></li>
+                            <li><strong>Secret Key:</strong> <code>6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe</code></li>
+                        </ul>
+                        <div class="alert alert-warning mt-3">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            <strong>Warning:</strong> These test keys should NOT be used in production!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Testing reCAPTCHA</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>To test the reCAPTCHA integration:</p>
+                        <ol>
+                            <li>Go to the <a href="/register.html">Registration</a> or <a href="/login.html">Login</a> page</li>
+                            <li>Fill in the form</li>
+                            <li>Click the "I'm not a robot" checkbox</li>
+                            <li>Submit the form</li>
+                        </ol>
+                        <p>With test keys, the checkbox will always pass. With production keys, users may need to solve a challenge.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mb-5">
+                    <a href="/index.html" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

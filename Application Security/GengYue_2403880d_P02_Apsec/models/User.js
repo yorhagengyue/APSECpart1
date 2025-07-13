@@ -7,10 +7,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add a name']
   },
-  username: {
-    type: String,
-    required: false
-  },
   email: {
     type: String,
     required: [true, 'Please add an email'],
@@ -22,8 +18,12 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['admin', 'manager', 'analyst', 'client', 'president', 'secretary', 'treasurer', 'member'],
-    default: 'member'
+    enum: ['admin', 'manager', 'analyst', 'client'],
+    default: 'client'
+  },
+  address: {
+    type: String,
+    required: false
   },
   password: {
     type: String,
@@ -34,6 +34,22 @@ const UserSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  isEmailVerified: {
+    type: Boolean,
+    default: false
+  },
+  emailVerificationToken: {
+    type: String,
+    default: null
+  },
+  emailVerificationExpires: {
+    type: Date,
+    default: null
+  },
+  verifiedAt: {
+    type: Date,
+    default: null
   }
 });
 
@@ -48,11 +64,26 @@ UserSchema.pre('save', async function(next) {
 
 // Generate JWT
 UserSchema.methods.getSignedJwtToken = function() {
-  // Use hardcoded secret as fallback
-  const secret = process.env.JWT_SECRET || '9f1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b';
-  return jwt.sign({ id: this._id }, secret, {
+  if (!process.env.JWT_SECRET) {
+    if (process.env.NODE_ENV === 'test') {
+      process.env.JWT_SECRET = 'test-secret-key-for-testing-only';
+    } else {
+      throw new Error('JWT_SECRET is not defined in environment variables');
+    }
+  }
+  
+  return jwt.sign({ 
+    id: this._id,
+    role: this.role,
+    email: this.email
+  }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE || '24h'
   });
+};
+
+// Alias for getSignedJwtToken (for backward compatibility)
+UserSchema.methods.generateAuthToken = function() {
+  return this.getSignedJwtToken();
 };
 
 // Validate password

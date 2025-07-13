@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TechSecure</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">TechSecure</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form Container -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">User Login</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Login Form -->
+                        <form id="loginForm">
+                            <!-- Email Input -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                            
+                            <!-- Password Input -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div class="invalid-feedback">
+                                    Please enter your password.
+                                </div>
+                            </div>
+                            
+                            <!-- reCAPTCHA -->
+                            <div class="mb-3">
+                                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                            </div>
+                            
+                            <!-- Error Message Display Area -->
+                            <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                                <!-- Error messages will be displayed here -->
+                            </div>
+                            
+                            <!-- Success Message Display Area -->
+                            <div id="successMessage" class="alert alert-success d-none" role="alert">
+                                <!-- Success messages will be displayed here -->
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                        
+                        <!-- Register Link -->
+                        <div class="text-center mt-3">
+                            <p>Don't have an account? <a href="register.html">Register here</a></p>
+                        </div>
+                        
+                        <!-- Test Credentials Info -->
+                        <div class="mt-4">
+                            <div class="alert alert-info">
+                                <h6>Test Credentials:</h6>
+                                <small>
+                                    Admin: admin@techsecure.com / admin123<br>
+                                    Manager: manager@techsecure.com / manager123<br>
+                                    Analyst: analyst@techsecure.com / analyst123<br>
+                                    Client: client@techsecure.com / client123
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Custom JavaScript for login functionality -->
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html> 

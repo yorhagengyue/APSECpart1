@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const mongoURI = process.env.MONGODB_URI;
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/techsecure';
 
-    if (!mongoURI) {
+    if (!mongoURI && process.env.NODE_ENV !== 'test') {
       console.error('Error: MONGODB_URI is not defined in your environment variables. Please check your .env file.');
       process.exit(1);
     }

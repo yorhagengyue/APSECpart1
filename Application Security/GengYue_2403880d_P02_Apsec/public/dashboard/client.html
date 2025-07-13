@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - TechSecure</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TechSecure Client Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Support</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> <span id="userName">Client</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Welcome Section -->
+            <div class="col-12">
+                <h1>Client Dashboard</h1>
+                <p class="lead">Welcome to your personal client portal</p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="row mt-4">
+            <!-- User Role Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-user-circle"></i> Account Type</h5>
+                        <p class="card-text">Client</p>
+                        <p class="card-text"><small>Standard Access</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Requests Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-paper-plane"></i> Active Requests</h5>
+                        <p class="card-text">3 Open</p>
+                        <p class="card-text"><small>2 Pending Review</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Tickets Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-ticket-alt"></i> Support Tickets</h5>
+                        <p class="card-text">1 Active</p>
+                        <p class="card-text"><small>Average Response: 2h</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Status Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-shield-alt"></i> Account Status</h5>
+                        <p class="card-text">Active</p>
+                        <p class="card-text"><small>Member Since: 2024</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client Features Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Client Features</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Available Services</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> View Personal Profile</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Submit Service Requests</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Track Request Status</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Access Support Resources</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> View Service History</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Requests Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Recent Requests</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Request ID</th>
+                                        <th>Type</th>
+                                        <th>Date Submitted</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#REQ-2025-001</td>
+                                        <td>Service Update</td>
+                                        <td>2025-01-15</td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">View Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#REQ-2025-002</td>
+                                        <td>Technical Support</td>
+                                        <td>2025-01-14</td>
+                                        <td><span class="badge bg-info">In Progress</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">View Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#REQ-2024-089</td>
+                                        <td>Account Update</td>
+                                        <td>2024-12-20</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-secondary">View History</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Quick Actions</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <button class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-plus-circle"></i> New Request
+                                </button>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <button class="btn btn-info btn-lg w-100">
+                                    <i class="fas fa-headset"></i> Contact Support
+                                </button>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <button class="btn btn-secondary btn-lg w-100">
+                                    <i class="fas fa-user-edit"></i> Update Profile
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Auth JS -->
+    <script src="../js/auth.js"></script>
+    <!-- Dashboard JS -->
+    <script src="../js/dashboard.js"></script>
+    <!-- Client specific JS -->
+    <script>
+        // Client-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is authenticated and has client role
+            if (!requireAuth('client')) {
+                return; // requireAuth will handle redirect
+            }
+            
+            // Load user data
+            const userData = getUserData();
+            if (userData) {
+                document.getElementById('userName').textContent = userData.name;
+            }
+            
+            // Load dashboard data
+            loadDashboardData();
+        });
+        
+        // Load client dashboard data
+        async function loadDashboardData() {
+            try {
+                const response = await authenticatedFetch('/api/client/dashboard');
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    console.log('Client dashboard loaded:', data);
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+    </script>
+    <script src="../js/email-verification-reminder.js"></script>
+</body>
+</html> 

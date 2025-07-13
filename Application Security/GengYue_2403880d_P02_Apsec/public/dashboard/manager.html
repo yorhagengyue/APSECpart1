@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - TechSecure</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TechSecure Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reports</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> <span id="userName">Manager</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Welcome Section -->
+            <div class="col-12">
+                <h1>Manager Dashboard</h1>
+                <p class="lead">Team Management and Reports Overview</p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="row mt-4">
+            <!-- User Role Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-user-tie"></i> User Role</h5>
+                        <p class="card-text">Manager</p>
+                        <p class="card-text"><small>Team Management Access</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Size Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-users"></i> Team Size</h5>
+                        <p class="card-text">12 Members</p>
+                        <p class="card-text"><small>Active Team Members</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Requests Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-tasks"></i> Pending</h5>
+                        <p class="card-text">5 Requests</p>
+                        <p class="card-text"><small>Awaiting Approval</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Card -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-chart-line"></i> Reports</h5>
+                        <p class="card-text">8 Available</p>
+                        <p class="card-text"><small>This Month</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manager Features Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Manager Features</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Management Permissions</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> View Team Reports</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Manage Team Members</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Approve Requests</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Generate Performance Reports</li>
+                            <li class="list-group-item"><i class="fas fa-check text-success"></i> Team Communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Overview Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2>Team Overview</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Team Member</th>
+                                        <th>Department</th>
+                                        <th>Status</th>
+                                        <th>Performance</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>Development</td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" style="width: 85%">85%</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jane Smith</td>
+                                        <td>Design</td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" style="width: 92%">92%</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mike Johnson</td>
+                                        <td>Testing</td>
+                                        <td><span class="badge bg-warning">On Leave</span></td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" style="width: 78%">78%</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">View</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Auth JS -->
+    <script src="../js/auth.js"></script>
+    <!-- Dashboard JS -->
+    <script src="../js/dashboard.js"></script>
+    <!-- Manager specific JS -->
+    <script>
+        // Manager-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is authenticated and has manager role
+            if (!requireAuth('manager')) {
+                return; // requireAuth will handle redirect
+            }
+            
+            // Load user data
+            const userData = getUserData();
+            if (userData) {
+                document.getElementById('userName').textContent = userData.name;
+            }
+            
+            // Load dashboard data
+            loadDashboardData();
+
+            // Add click handlers for navigation
+            document.querySelector('.nav-link[href="#"]').addEventListener('click', function(e) {
+                if (e.target.textContent === 'Team') {
+                    e.preventDefault();
+                    loadTeamData();
+                }
+            });
+        });
+        
+        // Load manager dashboard data
+        async function loadDashboardData() {
+            try {
+                const response = await authenticatedFetch('/api/manager/dashboard');
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    console.log('Manager dashboard loaded:', data);
+                    
+                    // Update dashboard stats if available
+                    if (data.data.stats) {
+                        const stats = data.data.stats;
+                        document.querySelector('.bg-success .card-text').textContent = stats.teamSize + ' Members';
+                        document.querySelector('.bg-warning .card-text').textContent = stats.pendingRequests + ' Requests';
+                        document.querySelector('.bg-info .card-text').textContent = stats.availableReports + ' Available';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+
+        // Load team data
+        async function loadTeamData() {
+            try {
+                const response = await authenticatedFetch('/api/manager/team');
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    console.log('Team data loaded:', data);
+                    updateTeamTable(data.data);
+                }
+            } catch (error) {
+                console.error('Error loading team data:', error);
+            }
+        }
+
+        // Update team table with real data
+        function updateTeamTable(teamMembers) {
+            const tbody = document.querySelector('.table tbody');
+            tbody.innerHTML = '';
+            
+            teamMembers.forEach(member => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${member.name}</td>
+                    <td>${member.department}</td>
+                    <td><span class="badge bg-${member.status === 'Active' ? 'success' : 'warning'}">${member.status}</span></td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar bg-${member.performance >= 90 ? 'success' : member.performance >= 75 ? 'warning' : 'danger'}" 
+                                 style="width: ${member.performance}%">${member.performance}%</div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="viewMemberDetails('${member._id}')">View</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // View member details
+        function viewMemberDetails(memberId) {
+            alert(`Viewing details for member ID: ${memberId}`);
+            // This could open a modal with member details
+        }
+
+        // Load reports
+        async function loadReports() {
+            try {
+                const response = await authenticatedFetch('/api/manager/reports');
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    console.log('Reports loaded:', data);
+                    // Display reports in a modal or section
+                }
+            } catch (error) {
+                console.error('Error loading reports:', error);
+            }
+        }
+
+        // Load pending requests
+        async function loadRequests() {
+            try {
+                const response = await authenticatedFetch('/api/manager/requests');
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    console.log('Requests loaded:', data);
+                    // Display requests for approval
+                }
+            } catch (error) {
+                console.error('Error loading requests:', error);
+            }
+        }
+    </script>
+    <script src="../js/email-verification-reminder.js"></script>
+</body>
+</html> 
